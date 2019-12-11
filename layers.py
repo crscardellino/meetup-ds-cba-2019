@@ -4,7 +4,7 @@ import tensorflow as tf
 
 from tensorflow.keras import layers
 
-from .utils import sparse_to_tuple
+from utils import sparse_to_tuple
 
 
 class GraphConvolution(layers.Layer):
@@ -99,8 +99,8 @@ class GraphConvolution(layers.Layer):
                                      trainable=True)
 
     def call(self, inputs):
-        output = tf.matmul(inputs, self.W)
-        output = tf.sparse.sparse_dense_matmul(self.A, output)
+        convolution = tf.sparse.sparse_dense_matmul(self.A, inputs)
+        output = tf.matmul(convolution, self.W)
 
         if self.use_bias:
             output += self.b
