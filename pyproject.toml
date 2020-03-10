@@ -12,6 +12,7 @@ networkx = "^2.4"
 numpy = "^1.18.1"
 scipy = "^1.4.1"
 tensorflow = "^2.1.0"
+RISE = "^5.6.1"
 
 [tool.poetry.dev-dependencies]
 
